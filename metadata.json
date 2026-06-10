@@ -2,5 +2,5 @@
   "name": "DNS PRO",
   "description": "Alterador e otimizador de DNS profissional para Android TV, Google TV e TV Boxes com suporte a controle remoto.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

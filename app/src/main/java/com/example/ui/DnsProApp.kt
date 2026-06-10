@@ -57,9 +57,10 @@ fun DnsProApp(viewModel: DnsViewModel) {
         contract = ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            viewModel.toggleDns {
-                // VPN was already prepared by this stage
-            }
+            viewModel.toggleDns(
+                onVpnPermissionRequired = { },
+                onStartRejected = { message -> Toast.makeText(context, message, Toast.LENGTH_LONG).show() }
+            )
         } else {
             Toast.makeText(context, "A permissão da VPN é necessária para aplicar o DNS.", Toast.LENGTH_LONG).show()
         }
@@ -177,7 +178,10 @@ fun DnsProApp(viewModel: DnsViewModel) {
                             if (vpnIntent != null) {
                                 vpnPermissionLauncher.launch(vpnIntent)
                             } else {
-                                viewModel.toggleDns {}
+                                viewModel.toggleDns(
+                                    onVpnPermissionRequired = { },
+                                    onStartRejected = { message -> Toast.makeText(context, message, Toast.LENGTH_LONG).show() }
+                                )
                             }
                         },
                         accentColor = if (vpnActive) Color(0xFFFF5252) else Color(0xFF00ADB5),
@@ -477,7 +481,7 @@ fun DnsProApp(viewModel: DnsViewModel) {
                                         },
                                         label = { Text("DNS Primário IPv4", fontSize = 11.sp) },
                                         singleLine = true,
-                                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                                         colors = OutlinedTextFieldDefaults.colors(
                                             focusedTextColor = Color.White,
                                             unfocusedTextColor = Color.White,
@@ -500,7 +504,7 @@ fun DnsProApp(viewModel: DnsViewModel) {
                                         },
                                         label = { Text("DNS Secundário IPv4", fontSize = 11.sp) },
                                         singleLine = true,
-                                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                                         colors = OutlinedTextFieldDefaults.colors(
                                             focusedTextColor = Color.White,
                                             unfocusedTextColor = Color.White,
@@ -569,7 +573,7 @@ fun DnsProApp(viewModel: DnsViewModel) {
                                             doh = it
                                         )
                                     },
-                                    label = { Text("DNS Privado (Host DoH, Ex: dns.adguard.com)", fontSize = 11.sp) },
+                                    label = { Text("Host DNS seguro (opcional)", fontSize = 11.sp) },
                                     singleLine = true,
                                     colors = OutlinedTextFieldDefaults.colors(
                                         focusedTextColor = Color.White,
@@ -590,7 +594,7 @@ fun DnsProApp(viewModel: DnsViewModel) {
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Text(
-                                        text = "* Nota: Ao inserir DNS Privado (DoH), o app resolve o host para aplicar os blocos IP automaticamente.",
+                                        text = "* Nota: o modo atual aplica DNS por IP via VPN local. O host seguro é salvo como referência do perfil, sem forçar DoH dentro do túnel.",
                                         color = Color.White.copy(alpha = 0.4f),
                                         fontSize = 10.sp,
                                         lineHeight = 13.sp,
@@ -743,7 +747,7 @@ fun DnsProApp(viewModel: DnsViewModel) {
                                             horizontalArrangement = Arrangement.SpaceBetween
                                         ) {
                                             Text(
-                                                text = "DNS Privado / DoH Host:",
+                                                text = "Host seguro/ref.:",
                                                 color = Color.White.copy(alpha = 0.5f),
                                                 fontSize = 11.sp
                                             )
