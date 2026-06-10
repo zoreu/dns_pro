@@ -6,3 +6,5 @@ ao abrir o app dns pro escolha um dns preferido depois selecione o botão pra at
 minimize o app e use seus apps favoritos sem bloqueio de operadora
 
 OBS: sempre que for trocar de dns desative o dns e ative novamente pra ativar o novo dns
+
+![DNS PRO](https://i.imgur.com/DWOMSmI.jpeg)
