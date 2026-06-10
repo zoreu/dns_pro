@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DNS PRO</string>
+    <string name="vpn_explanation">O DNS PRO utiliza um perfil VPN local para direcionar suas consultas de DNS para o servidor de alta velocidade escolhido de forma segura, sem enviar seu tráfego de internet para servidores externos.</string>
+</resources>

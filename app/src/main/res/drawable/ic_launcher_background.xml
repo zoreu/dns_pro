@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M0,0h108v108H0z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#1A1C20" />
+                <item android:offset="1.0" android:color="#121416" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Beautiful tech grid lines for professional cinema aesthetics -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M18,0v108 M36,0v108 M54,0v108 M72,0v108 M90,0v108 M0,18h108 M0,36h108 M0,54h108 M0,72h108 M0,90h108"
+        android:strokeWidth="0.5"
+        android:strokeColor="#0B0D0E" strokeAlpha="0.4" />
+</vector>

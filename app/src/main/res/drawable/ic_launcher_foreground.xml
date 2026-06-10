@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer Shield Outline for secure, high speed DNS -->
+    <path
+        android:fillColor="#00ADB5"
+        android:pathData="M54,18 C41,20 34,25 34,34 L34,58 C34,76 48,88 54,92 C60,88 74,76 74,58 L74,34 C74,25 67,20 54,18 Z"/>
+    <!-- Inner Shield Accent -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,23 C44,24.5 39,28.5 39,36 L39,56 C39,70 50,80 54,84 C58,80 69,70 69,56 L69,36 C69,28.5 64,24.5 54,23 Z"/>
+    <!-- Central Lightning/Speed accent inside Shield representing DNS speed optimization -->
+    <path
+        android:fillColor="#121416"
+        android:pathData="M56,31 L44,49 L52,49 L48,69 L64,47 L54,47 Z"/>
+</vector>
